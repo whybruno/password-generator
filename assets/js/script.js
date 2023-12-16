@@ -1,3 +1,5 @@
+var generateButton = document.querySelector("#generate");
+
 // Array of special characters to be included in password
 const specialCharacters = [
   '@',
@@ -88,10 +90,46 @@ const upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
-function getPasswordOptions() {
+// specialCharacters
+// numericCharacters
+// lowerCasedCharacters
+// upperCasedCharacters
 
+// lengthQuestion
+// lowerQuestion
+// upperQuestion
+// numericQuestion
+// specialQuestion
+
+function userQuestions() {
+
+  var isValid = false;
+
+  do {
+    const lengthQuestion = prompt("Choose password length between 8 and 128 characters");
+    const lowerQuestion = confirm("Do you want your password to include lower case letters?");
+    const upperQuestion = confirm("Do you want your password to include upper case letters?");
+    const numericQuestion = confirm("Do you want your password to include numbers?");
+    const specialQuestion = confirm("Do you want your password to include special characters?");
+    var userAnswers = {
+      lengthQuestion: lengthQuestion,
+      lowerQuestion: lowerQuestion,
+      upperQuestion: upperQuestion,
+      numericQuestion: numericQuestion,
+      specialQuestion: specialQuestion
+    } 
+    if((Number(lengthQuestion) < 8)||(Number(lengthQuestion) > 128))
+    alert("Choose number between 8 and 128");
+    else if((!numericQuestion)&&(!lowerQuestion)&&(!upperQuestion)&&(!specialQuestion))
+    alert("Must choose at least one type.");
+    else
+    isValid = true;
+
+  } while(!isValid);
+  return userAnswers;
 }
+
+userQuestions()
 
 // Function for getting a random element from an array
 function getRandom(arr) {
