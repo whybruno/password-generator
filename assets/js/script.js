@@ -1,4 +1,6 @@
-var generateButton = document.querySelector("#generate");
+// get the references for the #generate button
+
+const generateButton = document.querySelector('#generate');
 
 // Array of special characters to be included in password
 const specialCharacters = [
@@ -162,26 +164,13 @@ function generatePassword() {
 };
 
 
-
-
-
-// Function for getting a random element from an array
-function getRandom(arr) {
-
-}
-
-
-
-// Get references to the #generate element
-const generateBtn = document.querySelector('#generate');
-
-// Write password to the #password input
-function writePassword() {
+// displayPassword Fun : display the password for #password input
+function displayPassword() {
   const password = generatePassword();
   const passwordText = document.querySelector('#password');
 
   passwordText.value = password;
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+// add listener event to the #generate button
+generateButton.addEventListener('click', displayPassword);
