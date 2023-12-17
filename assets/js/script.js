@@ -90,27 +90,18 @@ const upperCasedCharacters = [
   'Z'
 ];
 
-// specialCharacters
-// numericCharacters
-// lowerCasedCharacters
-// upperCasedCharacters
-
-// lengthQuestion
-// lowerQuestion
-// upperQuestion
-// numericQuestion
-// specialQuestion
+// userQuestions Fun : collect and store user responses and check minimum criteria
 
 function userQuestions() {
 
   var isValid = false;
 
   do {
-    const lengthQuestion = prompt("Choose password length between 8 and 128 characters");
-    const lowerQuestion = confirm("Do you want your password to include lower case letters?");
-    const upperQuestion = confirm("Do you want your password to include upper case letters?");
-    const numericQuestion = confirm("Do you want your password to include numbers?");
-    const specialQuestion = confirm("Do you want your password to include special characters?");
+    const lengthQuestion = prompt('Choose password length between 8 to 128 characters');
+    const lowerQuestion = confirm('Should it contain lowercase characters?');
+    const upperQuestion = confirm('Must it contain uppercase characters?');
+    const numericQuestion = confirm('Should it contain numeric characters?');
+    const specialQuestion = confirm('Must it contain special characters? ($@%&*, etc)');
     var userAnswers = {
       lengthQuestion: lengthQuestion,
       lowerQuestion: lowerQuestion,
@@ -119,9 +110,9 @@ function userQuestions() {
       specialQuestion: specialQuestion
     } 
     if((Number(lengthQuestion) < 8)||(Number(lengthQuestion) > 128))
-    alert("Choose number between 8 and 128");
+    alert('Choose a number between 8 and 128');
     else if((!numericQuestion)&&(!lowerQuestion)&&(!upperQuestion)&&(!specialQuestion))
-    alert("Must choose at least one type.");
+    alert('You must choose at least one character type');
     else
     isValid = true;
 
@@ -131,15 +122,55 @@ function userQuestions() {
 
 userQuestions()
 
+// generatePassword Fun : generate password with data entered by the user
+
+function generatePassword() {
+
+  var passOptions = userQuestions();
+  var passTemporary = [];
+  var passDefinitive = '';
+
+  if (passOptions.lowerQuestion) {
+    for (var i of lowerCasedCharacters)
+      passTemporary.push(i);
+  };
+
+  if (passOptions.upperQuestion) {
+    for (var i of upperCasedCharacters)
+      passTemporary.push(i);
+  };
+
+  if (passOptions.numericQuestion) {
+    for (var i of numericCharacters)
+      passTemporary.push(i);
+  };
+
+  if (passOptions.specialQuestion) {
+    for (var i of specialCharacters)
+      passTemporary.push(i);
+  };
+
+  console.log(passTemporary);
+
+  for (var i = 0; i < passOptions.length; i++) {
+    passDefinitive += passTemporary[Math.floor(Math.random() * passTemporary.length)];
+  };
+
+  console.log(passDefinitive);
+
+  return passDefinitive;
+};
+
+
+
+
+
 // Function for getting a random element from an array
 function getRandom(arr) {
 
 }
 
-// Function to generate password with user input
-function generatePassword() {
 
-}
 
 // Get references to the #generate element
 const generateBtn = document.querySelector('#generate');
