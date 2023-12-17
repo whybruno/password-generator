@@ -120,9 +120,7 @@ function userQuestions() {
 
   } while(!isValid);
   return userAnswers;
-}
-
-userQuestions()
+};
 
 // generatePassword Fun : generate password with data entered by the user
 
@@ -152,22 +150,21 @@ function generatePassword() {
       passTemporary.push(i);
   };
 
-  console.log(passTemporary);
+  console.log(`Temporary Password: ${passTemporary}`);
 
-  for (var i = 0; i < passOptions.length; i++) {
+  for (var i = 0; i < passOptions.lengthQuestion; i++) {
     passDefinitive += passTemporary[Math.floor(Math.random() * passTemporary.length)];
   };
 
-  console.log(passDefinitive);
+  console.log(`Definitive Password: ${passDefinitive}`);
 
   return passDefinitive;
 };
 
-
 // displayPassword Fun : display the password for #password input
 function displayPassword() {
-  const password = generatePassword();
-  const passwordText = document.querySelector('#password');
+  var password = generatePassword();
+  var passwordText = document.querySelector('#password');
 
   passwordText.value = password;
 }
