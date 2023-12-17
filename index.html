@@ -1,34 +1,42 @@
 <!DOCTYPE html>
-<html lang="en-gb">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
-      </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+	<main class="vh-100 overflow-hidden bg-dark text-secondary px-4 py-5 text-center">
+    <div class="h-100 d-flex align-items-center justify-content-center flex-column py-5">
+      <h1 class="display-3 fw-bold text-white">PASSWORD GENERATOR</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-6 mb-1">The password length must be between 8 to 128.</p>
+        <p class="fs-6 mb-5">The password must contain at least one type of characters.</p>
+				<div class="mb-5">
+          <button id="generate" type="button" class="btn btn-outline-one btn-lg px-4 me-sm-3 fw-bold">GENERATE</button>
         </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+
+				<div class="form-floating mx-5 mb-3">
+					<input readonly id="password" class="form-control">
+					<label for="password">Your Strong Password</label>
+				</div>
+
+				<div>
+          <a tabindex="0" onclick="copy()" class="btn btn-outline-two btn-sm px-4 me-sm-3 fw-bold" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="copied to clipboard">COPY</a>
         </div>
       </div>
     </div>
-    <script src="./assets/js/script.js"></script>
-  </body>
+  </main>
+
+	<!-- Bootstrap Javascript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+	<!-- Custom Javascript -->
+	<script src="./assets/js/script.js"></script>
+
+</body>
 </html>

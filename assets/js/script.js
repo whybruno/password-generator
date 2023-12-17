@@ -158,6 +158,10 @@ function generatePassword() {
 
   console.log(`Definitive Password: ${passDefinitive}`);
 
+  copyObject = {
+    passDefinitive: passDefinitive
+  };
+
   return passDefinitive;
 };
 
@@ -171,3 +175,21 @@ function displayPassword() {
 
 // add listener event to the #generate button
 generateButton.addEventListener('click', displayPassword);
+
+// copy the value generated in passDefinitive
+
+function copy() {
+  // copy input value to clipboard
+  navigator.clipboard.writeText(copyObject.passDefinitive);
+
+  // clear the input value after copied
+  document.querySelector('#password').value = '';
+}
+
+// to use the bootstrap 5 popover
+
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+});
